@@ -1,30 +1,40 @@
 import { useState } from 'react';
-import { OTWSite_backend } from 'declarations/OTWSite_backend';
+import './App.css';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import Roadmap from './components/Roadmap';
+import Socials from './components/Socials';
+import Tokenomics from './components/Tokenomics';
 
 function App() {
-  const [greeting, setGreeting] = useState('');
+  const [rotation, setRotation] = useState(0);
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    OTWSite_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
+  const handleMouseMove = (e) => {
+    const { clientX, target } = e;
+    const { offsetLeft, offsetWidth } = target;
+    const centerX = offsetLeft + offsetWidth / 2;
+    const rotationAngle = (clientX - centerX) / offsetWidth * 4320;
+    setRotation(rotationAngle);
+  };
 
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <div className="App"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setRotation(0)}>
+      <Header />
+      <img
+        src="logo.png"
+        alt="Meme"
+        className="meme-image"
+        style={{ transform: `rotate(${rotation}deg)` }}
+      />
+      <Socials />
+      <HeroSection />
+      <Roadmap />
+      <Tokenomics />
+      <Footer />
+    </div>
   );
 }
 

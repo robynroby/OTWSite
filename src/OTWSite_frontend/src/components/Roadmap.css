@@ -1,0 +1,54 @@
+.roadmap {
+    margin: 40px 0;
+}
+
+.roadmap h2 {
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.roadmap p {
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.roadmap-image {
+    width: 100%;
+    max-width: 400px;
+}
+
+@media (max-width: 768px) {
+    .roadmap {
+        margin: 20px 0;
+    }
+
+    .roadmap h2 {
+        font-size: 24px;
+    }
+
+    .roadmap p {
+        font-size: 16px;
+    }
+
+    .roadmap-image {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .roadmap {
+        margin: 10px 0;
+    }
+
+    .roadmap h2 {
+        font-size: 20px;
+    }
+
+    .roadmap p {
+        font-size: 14px;
+    }
+
+    .roadmap-image {
+        max-width: 200px;
+    }
+}

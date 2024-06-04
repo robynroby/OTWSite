@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Just Me Again Down Here';
+}
+
+.App {
+    text-align: center;
+}
+
+.meme-image {
+    width: 100%;
+    max-width: 250px;
+    margin: 20px auto;
+    transition: transform 1s;
+}
+
+@media (max-width: 768px) {
+    .meme-image {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .meme-image {
+        max-width: 150px;
+    }
+}
